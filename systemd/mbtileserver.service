@@ -1,0 +1,12 @@
+[Unit]
+Description=MBTiles map tile server
+After=network.target
+
+[Service]
+User=cairn
+ExecStart=/usr/local/bin/mbtileserver --port=8000 --dir=/opt/cairn/tiles
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

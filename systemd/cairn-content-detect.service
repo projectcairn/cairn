@@ -1,0 +1,12 @@
+[Unit]
+Description=Cairn content detection — scan attached storage and register available content
+After=local-fs.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/cairn/scripts/content-detect.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Kiwix ZIM file server
+After=network.target
+
+[Service]
+User=cairn
+ExecStart=/usr/local/bin/kiwix-serve --port=8080 --library /opt/cairn/zim/library.xml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
