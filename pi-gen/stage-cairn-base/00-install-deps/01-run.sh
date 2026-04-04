@@ -10,15 +10,16 @@ tar -xzf "/tmp/${KIWIX_ARCHIVE}" -C /tmp
 install -m 0755 "/tmp/kiwix-tools_linux-aarch64-${KIWIX_VERSION}/kiwix-serve" "${ROOTFS_DIR}/usr/local/bin/kiwix-serve"
 rm -rf "/tmp/${KIWIX_ARCHIVE}" "/tmp/kiwix-tools_linux-aarch64-${KIWIX_VERSION}"
 
-# mbtileserver 0.10.0 ARM64
-MBTS_VERSION="0.10.0"
-MBTS_ARCHIVE="mbtileserver_${MBTS_VERSION}_linux_arm64.tar.gz"
-MBTS_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTS_VERSION}/${MBTS_ARCHIVE}"
+# mbtileserver 0.11.0 ARM64
+MBTS_VERSION="0.11.0"
+MBTS_ZIP="mbtileserver_v${MBTS_VERSION}_linux_arm64.zip"
+MBTS_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTS_VERSION}/${MBTS_ZIP}"
 
-wget -q "${MBTS_URL}" -O "/tmp/${MBTS_ARCHIVE}"
-tar -xzf "/tmp/${MBTS_ARCHIVE}" -C /tmp
-install -m 0755 /tmp/mbtileserver "${ROOTFS_DIR}/usr/local/bin/mbtileserver"
-rm -f "/tmp/${MBTS_ARCHIVE}" /tmp/mbtileserver
+TMP_MB=$(mktemp -d)
+wget -q "${MBTS_URL}" -O "${TMP_MB}/${MBTS_ZIP}"
+unzip -qo "${TMP_MB}/${MBTS_ZIP}" -d "${TMP_MB}"
+install -m 0755 "${TMP_MB}/mbtileserver" "${ROOTFS_DIR}/usr/local/bin/mbtileserver"
+rm -rf "${TMP_MB}"
 
 # Create Cairn directories
 mkdir -p \

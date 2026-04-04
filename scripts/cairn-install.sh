@@ -8,7 +8,7 @@ set -euo pipefail
 
 CAIRN_VERSION="1.0.0-alpha"
 KIWIX_VERSION="3.7.0"
-MBTILES_VERSION="0.10.0"
+MBTILES_VERSION="0.11.0"
 REPO_URL="https://github.com/projectcairn/cairn.git"
 CAIRN_DIR="/opt/cairn"
 NONINTERACTIVE="${CAIRN_NONINTERACTIVE:-0}"
@@ -128,10 +128,12 @@ fi
 
 if [ ! -x /usr/local/bin/mbtileserver ] || ! mbtileserver --version 2>&1 | grep -q "${MBTILES_VERSION}"; then
     info "Installing mbtileserver ${MBTILES_VERSION}..."
-    MBT_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTILES_VERSION}/mbtileserver_linux_amd64"
-    wget -qO /tmp/mbtileserver "${MBT_URL}"
-    install -m 755 /tmp/mbtileserver /usr/local/bin/mbtileserver
-    rm -f /tmp/mbtileserver
+    MBT_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTILES_VERSION}/mbtileserver_v${MBTILES_VERSION}_linux_amd64.zip"
+    TMP_MB=$(mktemp -d)
+    wget -qO "${TMP_MB}/mbtileserver.zip" "${MBT_URL}"
+    unzip -qo "${TMP_MB}/mbtileserver.zip" -d "${TMP_MB}"
+    install -m 755 "${TMP_MB}/mbtileserver" /usr/local/bin/mbtileserver
+    rm -rf "${TMP_MB}"
     info "mbtileserver ${MBTILES_VERSION} installed"
 else
     info "mbtileserver ${MBTILES_VERSION} already installed"
