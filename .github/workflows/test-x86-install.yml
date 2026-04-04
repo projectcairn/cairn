@@ -1,0 +1,66 @@
+name: Test x86 Install Script
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/cairn-install.sh'
+      - 'dashboard/**'
+      - 'systemd/**'
+      - 'config/**'
+  workflow_dispatch:
+
+jobs:
+  test-install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run install script
+        run: |
+          sudo CAIRN_NONINTERACTIVE=1 CAIRN_SKIP_CONTENT=1 \
+            CAIRN_SRC_DIR="${GITHUB_WORKSPACE}" \
+            bash scripts/cairn-install.sh
+        env:
+          DEBIAN_FRONTEND: noninteractive
+
+      - name: Verify services are active
+        run: |
+          for svc in nginx kiwix-serve mbtileserver; do
+            echo -n "Checking ${svc}... "
+            if sudo systemctl is-active --quiet "${svc}"; then
+              echo "OK"
+            else
+              echo "FAILED"
+              sudo systemctl status "${svc}" --no-pager || true
+              exit 1
+            fi
+          done
+
+      - name: Verify dashboard is accessible
+        run: |
+          sleep 2
+          if curl -sf http://localhost/ | grep -q "Cairn"; then
+            echo "Dashboard is accessible"
+          else
+            echo "Dashboard check failed"
+            curl -s http://localhost/ | head -20
+            exit 1
+          fi
+
+      - name: Verify config.json was generated
+        run: |
+          if [ -f /opt/cairn/config.json ]; then
+            echo "config.json found:"
+            cat /opt/cairn/config.json
+          else
+            echo "WARNING: config.json not generated"
+          fi
+
+      - name: Verify VERSION file
+        run: |
+          cat /opt/cairn/VERSION
+          grep -q "1.0.0-alpha" /opt/cairn/VERSION

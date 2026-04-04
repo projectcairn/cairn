@@ -1,0 +1,56 @@
+name: Build Cairn Pi Image
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pi-gen/**'
+      - 'dashboard/**'
+      - 'systemd/**'
+      - 'config/**'
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tier:
+        description: 'Image tier'
+        required: false
+        default: 'lite'
+        type: choice
+        options:
+          - lite
+          - lite-ai
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Pi image
+        uses: usimd/pi-gen-action@v1
+        id: build
+        with:
+          image-name: cairn-pi
+          stage-list: stage0 stage1 stage2 stage-cairn-base
+          verbose-output: true
+          enable-noobs: false
+          compression: xz
+          compression-level: 9
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cairn-pi-${{ github.sha }}
+          path: ${{ steps.build.outputs.image-path }}
+          retention-days: 30
+
+      - name: Create release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.build.outputs.image-path }}
+          generate_release_notes: true
