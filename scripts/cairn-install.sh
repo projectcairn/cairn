@@ -128,11 +128,10 @@ fi
 
 if [ ! -x /usr/local/bin/mbtileserver ] || ! mbtileserver --version 2>&1 | grep -q "${MBTILES_VERSION}"; then
     info "Installing mbtileserver ${MBTILES_VERSION}..."
-    MBT_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTILES_VERSION}/mbtileserver-linux-x86_64.tar.gz"
-    TMP_MB=$(mktemp -d)
-    curl -sSL "${MBT_URL}" | tar xz -C "${TMP_MB}"
-    install -m 755 "${TMP_MB}/mbtileserver" /usr/local/bin/
-    rm -rf "${TMP_MB}"
+    MBT_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTILES_VERSION}/mbtileserver_linux_amd64"
+    wget -qO /tmp/mbtileserver "${MBT_URL}"
+    install -m 755 /tmp/mbtileserver /usr/local/bin/mbtileserver
+    rm -f /tmp/mbtileserver
     info "mbtileserver ${MBTILES_VERSION} installed"
 else
     info "mbtileserver ${MBTILES_VERSION} already installed"
