@@ -29,8 +29,8 @@ jobs:
 
       - name: Verify services are active
         run: |
-          for svc in nginx kiwix-serve mbtileserver; do
-            echo -n "Checking ${svc}... "
+          for svc in nginx mbtileserver; do
+            echo -n "Checking ${svc} is active... "
             if sudo systemctl is-active --quiet "${svc}"; then
               echo "OK"
             else
@@ -39,6 +39,13 @@ jobs:
               exit 1
             fi
           done
+          echo -n "Checking kiwix-serve is enabled... "
+          if sudo systemctl is-enabled --quiet kiwix-serve; then
+            echo "OK (exits without content, expected in CI)"
+          else
+            echo "FAILED"
+            exit 1
+          fi
 
       - name: Verify dashboard is accessible
         run: |
