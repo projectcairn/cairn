@@ -132,7 +132,7 @@ if [ ! -x /usr/local/bin/mbtileserver ] || ! mbtileserver --version 2>&1 | grep 
     TMP_MB=$(mktemp -d)
     wget -qO "${TMP_MB}/mbtileserver.zip" "${MBT_URL}"
     unzip -qo "${TMP_MB}/mbtileserver.zip" -d "${TMP_MB}"
-    install -m 755 "${TMP_MB}/mbtileserver" /usr/local/bin/mbtileserver
+    install -m 755 "${TMP_MB}/mbtileserver_v${MBTILES_VERSION}_linux_amd64" /usr/local/bin/mbtileserver
     rm -rf "${TMP_MB}"
     info "mbtileserver ${MBTILES_VERSION} installed"
 else

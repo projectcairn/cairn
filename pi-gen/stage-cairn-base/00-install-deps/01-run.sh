@@ -18,7 +18,7 @@ MBTS_URL="https://github.com/consbio/mbtileserver/releases/download/v${MBTS_VERS
 TMP_MB=$(mktemp -d)
 wget -q "${MBTS_URL}" -O "${TMP_MB}/${MBTS_ZIP}"
 unzip -qo "${TMP_MB}/${MBTS_ZIP}" -d "${TMP_MB}"
-install -m 0755 "${TMP_MB}/mbtileserver" "${ROOTFS_DIR}/usr/local/bin/mbtileserver"
+install -m 0755 "${TMP_MB}/mbtileserver_v${MBTS_VERSION}_linux_arm64" "${ROOTFS_DIR}/usr/local/bin/mbtileserver"
 rm -rf "${TMP_MB}"
 
 # Create Cairn directories
