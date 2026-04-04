@@ -1,0 +1,229 @@
+{
+  "version": 8,
+  "name": "Cairn Dark",
+  "sources": {
+    "gb-osm": {
+      "type": "vector",
+      "tiles": ["/tiles/gb-osm/{z}/{x}/{y}.pbf"],
+      "maxzoom": 14
+    }
+  },
+  "glyphs": "/tiles/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#1a1a2e"
+      }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "gb-osm",
+      "source-layer": "landuse",
+      "paint": {
+        "fill-color": [
+          "match", ["get", "class"],
+          "grass",      "#1b2e1b",
+          "park",       "#1b2e1b",
+          "cemetery",   "#1f2b1f",
+          "wood",       "#162416",
+          "forest",     "#162416",
+          "scrub",      "#1a261a",
+          "farmland",   "#1c241c",
+          "residential","#1e1e30",
+          "commercial", "#22203a",
+          "industrial", "#252238",
+          "#1a1a2e"
+        ],
+        "fill-opacity": 0.8
+      },
+      "metadata": { "cairn:group": "woodland" }
+    },
+    {
+      "id": "water-area",
+      "type": "fill",
+      "source": "gb-osm",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#0f2b4a",
+        "fill-opacity": 0.9
+      },
+      "metadata": { "cairn:group": "water" }
+    },
+    {
+      "id": "waterway",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "waterway",
+      "paint": {
+        "line-color": "#0f2b4a",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          6, 0.5,
+          14, 3
+        ]
+      },
+      "metadata": { "cairn:group": "water" }
+    },
+    {
+      "id": "flood-zones",
+      "type": "fill",
+      "source": "gb-osm",
+      "source-layer": "water",
+      "filter": ["==", ["get", "class"], "wetland"],
+      "paint": {
+        "fill-color": "#e74c3c",
+        "fill-opacity": 0.15
+      },
+      "layout": { "visibility": "none" },
+      "metadata": { "cairn:group": "flood" }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "gb-osm",
+      "source-layer": "building",
+      "minzoom": 13,
+      "paint": {
+        "fill-color": "#252545",
+        "fill-opacity": 0.7,
+        "fill-outline-color": "#2e2e52"
+      }
+    },
+    {
+      "id": "road-motorway",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "transportation",
+      "filter": ["==", ["get", "class"], "motorway"],
+      "paint": {
+        "line-color": "#e2b714",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          5, 0.6,
+          10, 2,
+          14, 5
+        ],
+        "line-opacity": 0.8
+      },
+      "metadata": { "cairn:group": "roads" }
+    },
+    {
+      "id": "road-trunk",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "transportation",
+      "filter": ["==", ["get", "class"], "trunk"],
+      "paint": {
+        "line-color": "#c49a12",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          6, 0.4,
+          10, 1.5,
+          14, 4
+        ],
+        "line-opacity": 0.7
+      },
+      "metadata": { "cairn:group": "roads" }
+    },
+    {
+      "id": "road-primary",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "transportation",
+      "filter": ["==", ["get", "class"], "primary"],
+      "paint": {
+        "line-color": "#8899aa",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          7, 0.3,
+          10, 1,
+          14, 3
+        ],
+        "line-opacity": 0.6
+      },
+      "metadata": { "cairn:group": "roads" }
+    },
+    {
+      "id": "road-secondary",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "transportation",
+      "filter": ["in", ["get", "class"], ["literal", ["secondary", "tertiary"]]],
+      "minzoom": 9,
+      "paint": {
+        "line-color": "#667788",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, 0.2,
+          14, 2
+        ],
+        "line-opacity": 0.5
+      },
+      "metadata": { "cairn:group": "roads" }
+    },
+    {
+      "id": "road-minor",
+      "type": "line",
+      "source": "gb-osm",
+      "source-layer": "transportation",
+      "filter": ["in", ["get", "class"], ["literal", ["minor", "service", "track", "path"]]],
+      "minzoom": 12,
+      "paint": {
+        "line-color": "#556677",
+        "line-width": [
+          "interpolate", ["linear"], ["zoom"],
+          12, 0.3,
+          14, 1.2
+        ],
+        "line-opacity": 0.4
+      },
+      "metadata": { "cairn:group": "roads" }
+    },
+    {
+      "id": "labels-place",
+      "type": "symbol",
+      "source": "gb-osm",
+      "source-layer": "place",
+      "filter": ["in", ["get", "class"], ["literal", ["city", "town", "village"]]],
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Open Sans Regular"],
+        "text-size": [
+          "match", ["get", "class"],
+          "city", 14,
+          "town", 12,
+          10
+        ],
+        "text-max-width": 8,
+        "text-anchor": "center"
+      },
+      "paint": {
+        "text-color": "#cccccc",
+        "text-halo-color": "#1a1a2e",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "labels-road",
+      "type": "symbol",
+      "source": "gb-osm",
+      "source-layer": "transportation_name",
+      "minzoom": 12,
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Open Sans Regular"],
+        "text-size": 10,
+        "symbol-placement": "line",
+        "text-rotation-alignment": "map"
+      },
+      "paint": {
+        "text-color": "#8899aa",
+        "text-halo-color": "#1a1a2e",
+        "text-halo-width": 1
+      }
+    }
+  ]
+}

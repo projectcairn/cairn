@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cairn</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/maplibre-gl.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="logo">◆ Cairn</div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a href="#home" class="nav-item active" data-section="home"><span class="nav-icon">🏠</span> Home</a></li>
+        <li><a href="#library" class="nav-item" data-section="library"><span class="nav-icon">📚</span> Library</a></li>
+        <li><a href="#maps" class="nav-item" data-section="maps"><span class="nav-icon">🗺️</span> Maps</a></li>
+        <li><a href="#files" class="nav-item" data-section="files"><span class="nav-icon">📁</span> Files</a></li>
+        <li><a href="#radio" class="nav-item" data-section="radio"><span class="nav-icon">📻</span> Radio</a></li>
+        <li><a href="#vault" class="nav-item" data-section="vault"><span class="nav-icon">🔒</span> Vault</a></li>
+        <li><a href="#ai-chat" class="nav-item" data-section="ai-chat"><span class="nav-icon">🤖</span> AI Chat</a></li>
+        <li><a href="#content" class="nav-item" data-section="content"><span class="nav-icon">📦</span> Content</a></li>
+        <li><a href="#system" class="nav-item" data-section="system"><span class="nav-icon">⚙️</span> System</a></li>
+      </ul>
+    </nav>
+
+    <main class="content" id="content">
+      <section class="section active" id="section-home">
+        <h2>Home</h2>
+        <div class="status-grid" id="status-grid">
+          <div class="card">
+            <span class="card-label">Device</span>
+            <span class="card-value" id="val-device">—</span>
+            <span class="status-dot green"></span>
+          </div>
+          <div class="card">
+            <span class="card-label">Uptime</span>
+            <span class="card-value" id="val-uptime">—</span>
+            <span class="status-dot green"></span>
+          </div>
+          <div class="card">
+            <span class="card-label">Storage Used</span>
+            <span class="card-value" id="val-storage-used">—</span>
+            <span class="status-dot" id="dot-storage"></span>
+          </div>
+          <div class="card">
+            <span class="card-label">Storage Free</span>
+            <span class="card-value" id="val-storage-free">—</span>
+            <span class="status-dot" id="dot-storage-free"></span>
+          </div>
+          <div class="card">
+            <span class="card-label">Services</span>
+            <span class="card-value" id="val-services">—</span>
+            <span class="status-dot" id="dot-services"></span>
+          </div>
+          <div class="card">
+            <span class="card-label">Connected Clients</span>
+            <span class="card-value" id="val-clients">—</span>
+            <span class="status-dot green"></span>
+          </div>
+        </div>
+        <p class="status-msg" id="status-msg"></p>
+      </section>
+
+      <section class="section" id="section-library">
+        <h2>Library</h2>
+        <form class="lib-search" id="lib-search" autocomplete="off">
+          <input type="text" id="lib-search-input" class="lib-search-input" placeholder="Search articles…" aria-label="Search library">
+          <button type="submit" class="lib-search-btn">Search</button>
+        </form>
+        <div id="lib-search-results" class="lib-search-results"></div>
+        <div id="lib-catalog" class="lib-catalog"></div>
+        <p class="lib-msg" id="lib-msg"></p>
+      </section>
+      <section class="section" id="section-maps">
+        <div class="map-wrap" id="map-wrap">
+          <div class="map-container" id="map-container"></div>
+          <div class="map-controls" id="map-controls">
+            <div class="map-controls-title">Layers</div>
+            <label class="map-toggle"><input type="checkbox" data-layer="base" checked> Base Map</label>
+            <label class="map-toggle"><input type="checkbox" data-layer="roads" checked> Roads</label>
+            <label class="map-toggle"><input type="checkbox" data-layer="woodland" checked> Woodland</label>
+            <label class="map-toggle"><input type="checkbox" data-layer="water" checked> Water</label>
+            <label class="map-toggle"><input type="checkbox" data-layer="flood"> Flood Zones</label>
+          </div>
+          <div class="map-coords" id="map-coords">0.000, 0.000 · z0</div>
+          <div class="map-fallback" id="map-fallback"></div>
+        </div>
+      </section>
+      <section class="section" id="section-files">
+        <h2>Files</h2>
+        <nav class="files-breadcrumb" id="files-breadcrumb" aria-label="File path"></nav>
+        <div class="files-list" id="files-list"></div>
+        <p class="files-msg" id="files-msg"></p>
+      </section>
+      <section class="section" id="section-radio">
+        <h2>Radio</h2>
+
+        <div class="radio-block">
+          <h3 class="radio-heading">PMR446 Channels</h3>
+          <div class="radio-table-wrap">
+            <table class="radio-table">
+              <thead><tr><th>Ch</th><th>Frequency</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>446.00625 MHz</td><td>Analogue</td></tr>
+                <tr><td>2</td><td>446.01875 MHz</td><td>Analogue</td></tr>
+                <tr><td>3</td><td>446.03125 MHz</td><td>Analogue</td></tr>
+                <tr><td>4</td><td>446.04375 MHz</td><td>Analogue</td></tr>
+                <tr><td>5</td><td>446.05625 MHz</td><td>Analogue</td></tr>
+                <tr><td>6</td><td>446.06875 MHz</td><td>Analogue</td></tr>
+                <tr><td>7</td><td>446.08125 MHz</td><td>Analogue</td></tr>
+                <tr><td>8</td><td>446.09375 MHz</td><td>Analogue</td></tr>
+                <tr><td>9</td><td>446.10625 MHz</td><td>Digital</td></tr>
+                <tr><td>10</td><td>446.11875 MHz</td><td>Digital</td></tr>
+                <tr><td>11</td><td>446.13125 MHz</td><td>Digital</td></tr>
+                <tr><td>12</td><td>446.14375 MHz</td><td>Digital</td></tr>
+                <tr><td>13</td><td>446.15625 MHz</td><td>Digital</td></tr>
+                <tr><td>14</td><td>446.16875 MHz</td><td>Digital</td></tr>
+                <tr><td>15</td><td>446.18125 MHz</td><td>Digital</td></tr>
+                <tr><td>16</td><td>446.19375 MHz</td><td>Digital</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="radio-block radio-box emergency">
+          <h3 class="radio-heading">UK Emergency Frequencies</h3>
+          <dl class="radio-dl">
+            <dt>999 / 112</dt><dd>Mobile phone emergency (works without SIM on any network)</dd>
+            <dt>Ch 16 — 156.800 MHz</dt><dd>VHF maritime distress &amp; calling</dd>
+            <dt>2182 kHz</dt><dd>HF maritime distress</dd>
+            <dt>145.500 MHz</dt><dd>2 m amateur calling frequency (FM)</dd>
+          </dl>
+        </div>
+
+        <div class="radio-block radio-box">
+          <h3 class="radio-heading">Meshtastic / LoRa</h3>
+          <dl class="radio-dl">
+            <dt>868 MHz ISM band</dt><dd>Legal in UK at ≤25 mW ERP — no licence required</dd>
+            <dt>Default channel</dt><dd>LongFast, spreading factor 11, bandwidth 250 kHz</dd>
+          </dl>
+        </div>
+
+        <div class="radio-block">
+          <h3 class="radio-heading">NATO Phonetic Alphabet</h3>
+          <div class="nato-grid">
+            <span><b>A</b> Alpha</span><span><b>B</b> Bravo</span>
+            <span><b>C</b> Charlie</span><span><b>D</b> Delta</span>
+            <span><b>E</b> Echo</span><span><b>F</b> Foxtrot</span>
+            <span><b>G</b> Golf</span><span><b>H</b> Hotel</span>
+            <span><b>I</b> India</span><span><b>J</b> Juliet</span>
+            <span><b>K</b> Kilo</span><span><b>L</b> Lima</span>
+            <span><b>M</b> Mike</span><span><b>N</b> November</span>
+            <span><b>O</b> Oscar</span><span><b>P</b> Papa</span>
+            <span><b>Q</b> Quebec</span><span><b>R</b> Romeo</span>
+            <span><b>S</b> Sierra</span><span><b>T</b> Tango</span>
+            <span><b>U</b> Uniform</span><span><b>V</b> Victor</span>
+            <span><b>W</b> Whiskey</span><span><b>X</b> X-ray</span>
+            <span><b>Y</b> Yankee</span><span><b>Z</b> Zulu</span>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="section-vault">
+        <h2>Vault</h2>
+        <div id="vault-list-view">
+          <div id="vault-list" class="vault-list"></div>
+          <button class="btn-accent" id="vault-create-toggle">Create New Vault</button>
+          <form class="vault-create-form" id="vault-create-form" style="display:none" autocomplete="off">
+            <label class="vault-label">Name<input type="text" id="vc-name" class="vault-input" required></label>
+            <label class="vault-label">Passphrase (min 12 chars)<input type="password" id="vc-pass" class="vault-input" minlength="12" required></label>
+            <div class="vault-strength" id="vc-strength"></div>
+            <label class="vault-label">Confirm passphrase<input type="password" id="vc-pass2" class="vault-input" required></label>
+            <label class="vault-label">Size
+              <select id="vc-size" class="vault-input"><option>200MB</option><option>500MB</option><option selected>1GB</option><option>2GB</option></select>
+            </label>
+            <div class="vault-form-actions"><button type="submit" class="btn-accent">Create</button><button type="button" class="btn-ghost" id="vc-cancel">Cancel</button></div>
+          </form>
+        </div>
+        <div id="vault-unlock-view" style="display:none">
+          <form class="vault-unlock-form" id="vault-unlock-form" autocomplete="off">
+            <span id="vault-unlock-name" class="vault-unlock-name"></span>
+            <input type="password" id="vu-pass" class="vault-input" placeholder="Passphrase" required>
+            <button type="submit" class="btn-accent">Unlock</button>
+            <button type="button" class="btn-ghost" id="vu-cancel">Cancel</button>
+          </form>
+        </div>
+        <div id="vault-open-view" style="display:none">
+          <div class="vault-open-bar">
+            <span id="vault-open-name" class="vault-unlock-name"></span>
+            <span class="vault-timer" id="vault-timer"></span>
+            <button class="btn-ghost btn-sm" id="vault-lock-btn">Lock</button>
+          </div>
+          <nav class="files-breadcrumb" id="vault-breadcrumb" aria-label="Vault path"></nav>
+          <div class="files-list" id="vault-files"></div>
+          <label class="vault-upload-label"><input type="file" id="vault-upload-input" hidden multiple>
+            <span class="btn-ghost btn-sm">Upload Files</span></label>
+        </div>
+        <p class="vault-warn">Vault contents are encrypted with AES-256. If you forget your passphrase, your data cannot be recovered.</p>
+        <p class="vault-msg" id="vault-msg"></p>
+      </section>
+      <section class="section" id="section-ai-chat">
+        <h2>AI Chat</h2>
+        <div id="ai-unavailable" class="ai-unavailable" style="display:none">Local AI is not available. This feature requires a compatible model installed in /opt/cairn/models/</div>
+        <div id="ai-chat-ui" style="display:none">
+          <div class="ai-system-msg">Cairn AI — offline assistant. Responses may contain errors. Verify critical information against the reference library.</div>
+          <div class="ai-messages" id="ai-messages"></div>
+          <form class="ai-input-bar" id="ai-form" autocomplete="off">
+            <input type="text" id="ai-input" class="ai-input" placeholder="Type a message…" aria-label="Chat message" required>
+            <button type="submit" class="lib-search-btn" id="ai-send">Send</button>
+          </form>
+        </div>
+      </section>
+      <section class="section" id="section-content">
+        <h2>Content</h2>
+        <div class="cnt-grid" id="cnt-grid"></div>
+        <p class="cnt-msg" id="cnt-msg"></p>
+      </section>
+      <section class="section" id="section-system">
+        <h2>System</h2>
+        <button class="btn-accent sys-copy-btn" id="sys-copy">Copy Diagnostic Info</button>
+        <div class="sys-grid" id="sys-grid"></div>
+        <p class="sys-msg" id="sys-msg"></p>
+      </section>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="wiz-overlay" id="wiz-overlay" style="display:none">
+    <div class="wiz-card">
+      <div class="wiz-dots" id="wiz-dots"></div>
+
+      <div class="wiz-step active" data-step="0">
+        <h2>Welcome to Cairn</h2>
+        <p>Your offline knowledge and communication node. This wizard will configure your device in a few quick steps.</p>
+        <div class="wiz-info" id="wiz-hw-summary"></div>
+      </div>
+
+      <div class="wiz-step" data-step="1">
+        <h2>Hardware Profile</h2>
+        <div class="wiz-info" id="wiz-hw-detail"></div>
+      </div>
+
+      <div class="wiz-step" data-step="2">
+        <h2>Choose Content</h2>
+        <p>Select content packs to install. Recommended tier: <strong id="wiz-tier"></strong></p>
+        <div class="wiz-content-list" id="wiz-content-list"></div>
+        <div class="wiz-size-total">Selected: <strong id="wiz-size-total">0 GB</strong></div>
+      </div>
+
+      <div class="wiz-step" data-step="3">
+        <h2>WiFi Hotspot</h2>
+        <label class="vault-label">Network name (SSID)<input type="text" id="wiz-ssid" class="vault-input" value="Cairn"></label>
+        <label class="vault-label">Password (min 8 chars)<input type="text" id="wiz-wifi-pass" class="vault-input" value="cairn12345" minlength="8"></label>
+        <label class="vault-label">Channel<select id="wiz-channel" class="vault-input"><option>1</option><option>6</option><option selected>11</option></select></label>
+      </div>
+
+      <div class="wiz-step" data-step="4">
+        <h2>Local AI</h2>
+        <div class="wiz-info" id="wiz-ai-info"></div>
+        <label class="map-toggle" style="margin-top:12px"><input type="checkbox" id="wiz-ai-toggle"> Enable local AI assistant</label>
+      </div>
+
+      <div class="wiz-step" data-step="5">
+        <h2>Personal Vault</h2>
+        <p>Create an encrypted vault for sensitive documents. You can skip this and create one later.</p>
+        <label class="map-toggle" style="margin-top:8px"><input type="checkbox" id="wiz-vault-toggle"> Create a vault now</label>
+        <div id="wiz-vault-fields" style="display:none;margin-top:12px">
+          <label class="vault-label">Vault name<input type="text" id="wiz-vault-name" class="vault-input" value="Personal"></label>
+          <label class="vault-label">Passphrase (min 12 chars)<input type="password" id="wiz-vault-pass" class="vault-input" minlength="12"></label>
+          <label class="vault-label">Size<select id="wiz-vault-size" class="vault-input"><option>200MB</option><option selected>500MB</option><option>1GB</option></select></label>
+        </div>
+      </div>
+
+      <div class="wiz-step" data-step="6">
+        <h2>Ready</h2>
+        <p>Your Cairn node is configured. Review your choices:</p>
+        <div class="wiz-info" id="wiz-summary"></div>
+      </div>
+
+      <div class="wiz-nav">
+        <button class="btn-ghost" id="wiz-back" style="visibility:hidden">Back</button>
+        <button class="btn-accent" id="wiz-next">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/maplibre-gl.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
