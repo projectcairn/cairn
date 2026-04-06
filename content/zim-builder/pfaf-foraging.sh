@@ -13,15 +13,13 @@ docker run --rm -v "${OUTDIR}:/output" \
     zimit \
     --seeds "https://pfaf.org/user/Plant.aspx" \
     --name "pfaf-plants" \
-    --collection "pfaf-plants" \
-    --title "Plants For A Future — Edible & Medicinal Plants" \
+    --title "Plants For A Future - Edible and Medicinal Plants" \
     --description "Database of edible and medicinal plants with cultivation details" \
     --lang eng \
     --scopeType "prefix" \
     --scopeIncludeRx "pfaf\.org/user/Plant\.aspx" \
     --scopeIncludeRx "pfaf\.org/user/DatabaseSearhResult\.aspx" \
     -w 4 \
-    --waitUntil "load" \
-    --behaviors ""
+    --waitUntil "load"
 
 echo "Done → ${OUTDIR}/pfaf-plants.zim"

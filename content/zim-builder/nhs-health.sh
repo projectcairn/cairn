@@ -13,9 +13,8 @@ docker run --rm -v "${OUTDIR}:/output" \
     zimit \
     --seeds "https://www.nhs.uk/conditions/" \
     --name "nhs-health-az" \
-    --collection "nhs-health-az" \
     --title "NHS Health A-Z" \
-    --description "NHS health conditions, first aid, mental health and wellbeing guides" \
+    --description "NHS health conditions and first aid and mental health and wellbeing guides" \
     --lang eng \
     --scopeType "prefix" \
     --scopeIncludeRx "https://www\.nhs\.uk/conditions/" \
@@ -23,7 +22,6 @@ docker run --rm -v "${OUTDIR}:/output" \
     --scopeIncludeRx "https://www\.nhs\.uk/mental-health/" \
     --scopeIncludeRx "https://www\.nhs\.uk/common-health-questions/accidents-first-aid-and-treatments/" \
     -w 4 \
-    --waitUntil "load" \
-    --behaviors ""
+    --waitUntil "load"
 
 echo "Done → ${OUTDIR}/nhs-health-az.zim"

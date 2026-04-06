@@ -13,13 +13,11 @@ docker run --rm -v "${OUTDIR}:/output" \
     zimit \
     --seeds "https://prepare.campaign.gov.uk/" \
     --name "govuk-prepare" \
-    --collection "govuk-prepare" \
     --title "UK Government Emergency Preparedness" \
     --description "Official UK government guidance on preparing for emergencies" \
     --lang eng \
     --scopeType "page" \
     -w 2 \
-    --waitUntil "load" \
-    --behaviors ""
+    --waitUntil "load"
 
 echo "Done → ${OUTDIR}/govuk-prepare.zim"
