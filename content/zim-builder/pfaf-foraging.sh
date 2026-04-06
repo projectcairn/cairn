@@ -12,6 +12,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     ghcr.io/openzim/zimit:latest \
     zimit \
     --seeds "https://pfaf.org/user/Plant.aspx" \
+    --name "pfaf-plants" \
     --collection "pfaf-plants" \
     --title "Plants For A Future — Edible & Medicinal Plants" \
     --description "Database of edible and medicinal plants with cultivation details" \

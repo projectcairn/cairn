@@ -12,6 +12,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     ghcr.io/openzim/zimit:latest \
     zimit \
     --seeds "https://www.nhs.uk/conditions/" \
+    --name "nhs-health-az" \
     --collection "nhs-health-az" \
     --title "NHS Health A-Z" \
     --description "NHS health conditions, first aid, mental health and wellbeing guides" \
