@@ -8,7 +8,9 @@ Output directory: content/zim-builder/output/radio-html/
 
 import json
 import os
+import struct
 import sys
+import zlib
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, "data")
@@ -318,6 +320,26 @@ Use it whenever spelling callsigns, grid references, or critical words.</p>
     return page("NATO Phonetic Alphabet", body, "phonetic.html")
 
 
+def generate_favicon(path, size=48, color=(0xE2, 0xB7, 0x14)):
+    """Write a minimal solid-color PNG using only struct + zlib."""
+    r, g, b = color
+    raw_rows = b""
+    for _ in range(size):
+        raw_rows += b"\x00" + bytes([r, g, b]) * size
+    compressed = zlib.compress(raw_rows)
+
+    def chunk(tag, data):
+        c = tag + data
+        return struct.pack(">I", len(data)) + c + struct.pack(">I", zlib.crc32(c) & 0xFFFFFFFF)
+
+    ihdr_data = struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0)
+    with open(path, "wb") as f:
+        f.write(b"\x89PNG\r\n\x1a\n")
+        f.write(chunk(b"IHDR", ihdr_data))
+        f.write(chunk(b"IDAT", compressed))
+        f.write(chunk(b"IEND", b""))
+
+
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -337,7 +359,9 @@ def main():
             f.write(builder())
         print(f"  wrote {filename}")
 
-    print(f"\n{len(pages)} pages generated in {OUT_DIR}")
+    generate_favicon(os.path.join(OUT_DIR, "favicon.png"))
+    print("  wrote favicon.png")
+    print(f"\n{len(pages)} pages + favicon generated in {OUT_DIR}")
 
 
 if __name__ == "__main__":

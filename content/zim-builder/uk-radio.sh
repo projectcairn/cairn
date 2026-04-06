@@ -23,7 +23,7 @@ echo "[2/2] Packaging into ZIM..."
 if command -v zimwriterfs &>/dev/null; then
     zimwriterfs \
         --welcome "index.html" \
-        --illustration "favicon.png" \
+        --illustration "favicon.png:48" \
         --name "uk-radio-reference" \
         --title "UK Radio Reference" \
         --description "PMR446, emergency, amateur, marine and mesh radio quick reference for the UK" \
