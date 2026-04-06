@@ -42,7 +42,6 @@ tilemaker \
     --output "${MBTILES_FILE}" \
     --config "${CONFIG_DIR}/config.json" \
     --process "${CONFIG_DIR}/process.lua" \
-    --bbox -8.2,49.9,1.8,60.9 \
     --skip-integrity
 
 echo "Done → ${MBTILES_FILE}"

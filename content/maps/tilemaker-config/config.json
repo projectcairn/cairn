@@ -61,6 +61,7 @@
     "minzoom": 0,
     "maxzoom": 14,
     "basezoom": 14,
+    "bounding_box": [-8.2, 49.9, 1.8, 60.9],
     "include_ids": false,
     "compress": "gzip",
     "name": "Cairn GB OSM",
