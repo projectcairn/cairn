@@ -1,0 +1,32 @@
+{
+  "region": "south-east",
+  "name": "South East England",
+  "bbox": [-2.0, 50.5, 1.8, 52.0],
+  "description": "London, Kent, Surrey, Sussex, Hampshire, Berkshire, Buckinghamshire, Oxfordshire, Hertfordshire, Essex",
+  "items": [
+    {
+      "id": "gb-osm-tiles-se",
+      "name": "OSM Map Tiles — South East",
+      "filename": "gb-osm-south-east.mbtiles",
+      "size_gb": 1.0,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-se",
+      "name": "OS Overlay — South East",
+      "filename": "os-overlay-south-east.mbtiles",
+      "size_gb": 0.5,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-se",
+      "name": "Flood Zones — South East",
+      "filename": "flood-zones-south-east.mbtiles",
+      "size_gb": 0.15,
+      "source": "self-built from EA data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

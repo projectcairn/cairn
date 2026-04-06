@@ -1,0 +1,32 @@
+{
+  "region": "midlands",
+  "name": "Midlands",
+  "bbox": [-3.2, 51.7, 0.5, 53.2],
+  "description": "West Midlands, East Midlands, Staffordshire, Warwickshire, Leicestershire, Nottinghamshire, Derbyshire, Lincolnshire, Northamptonshire",
+  "items": [
+    {
+      "id": "gb-osm-tiles-mid",
+      "name": "OSM Map Tiles — Midlands",
+      "filename": "gb-osm-midlands.mbtiles",
+      "size_gb": 0.7,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-mid",
+      "name": "OS Overlay — Midlands",
+      "filename": "os-overlay-midlands.mbtiles",
+      "size_gb": 0.35,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-mid",
+      "name": "Flood Zones — Midlands",
+      "filename": "flood-zones-midlands.mbtiles",
+      "size_gb": 0.12,
+      "source": "self-built from EA data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

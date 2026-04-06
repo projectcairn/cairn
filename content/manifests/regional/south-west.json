@@ -1,0 +1,32 @@
+{
+  "region": "south-west",
+  "name": "South West England",
+  "bbox": [-6.5, 49.9, -1.5, 51.7],
+  "description": "Cornwall, Devon, Dorset, Somerset, Wiltshire, Gloucestershire, Bristol",
+  "items": [
+    {
+      "id": "gb-osm-tiles-sw",
+      "name": "OSM Map Tiles — South West",
+      "filename": "gb-osm-south-west.mbtiles",
+      "size_gb": 0.6,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-sw",
+      "name": "OS Overlay — South West",
+      "filename": "os-overlay-south-west.mbtiles",
+      "size_gb": 0.3,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-sw",
+      "name": "Flood Zones — South West",
+      "filename": "flood-zones-south-west.mbtiles",
+      "size_gb": 0.1,
+      "source": "self-built from EA data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

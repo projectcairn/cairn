@@ -1,0 +1,52 @@
+[
+  {
+    "service": "Emergency Services (UK)",
+    "frequency": "999 / 112",
+    "mode": "Phone",
+    "notes": "Dial from any mobile, even without SIM (112 only). 999 works on landlines."
+  },
+  {
+    "service": "Maritime Distress (VHF)",
+    "frequency": "156.800 MHz",
+    "channel": "Ch 16",
+    "mode": "FM",
+    "notes": "International distress, safety and calling. Monitored by HM Coastguard."
+  },
+  {
+    "service": "Maritime Distress (HF)",
+    "frequency": "2182 kHz",
+    "mode": "USB",
+    "notes": "HF international distress and calling frequency."
+  },
+  {
+    "service": "Mountain Rescue / Coastguard",
+    "frequency": "156.000 MHz",
+    "channel": "Ch 0 (Zero)",
+    "mode": "FM",
+    "notes": "SAR coordination. Do not transmit unless in distress."
+  },
+  {
+    "service": "Amateur 2m Calling",
+    "frequency": "145.500 MHz",
+    "mode": "FM",
+    "notes": "UK 2m FM calling frequency. Requires amateur radio licence."
+  },
+  {
+    "service": "Amateur 2m SSB Calling",
+    "frequency": "144.300 MHz",
+    "mode": "USB",
+    "notes": "2m SSB calling frequency. Useful for longer-range contacts."
+  },
+  {
+    "service": "Amateur 70cm Calling",
+    "frequency": "433.500 MHz",
+    "mode": "FM",
+    "notes": "UK 70cm FM calling frequency. Requires amateur radio licence."
+  },
+  {
+    "service": "Meshtastic / LoRa (ISM)",
+    "frequency": "869.4–869.65 MHz",
+    "mode": "LoRa",
+    "notes": "ISM band, legal in UK at ≤25 mW ERP, no licence required."
+  }
+]

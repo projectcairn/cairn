@@ -1,0 +1,71 @@
+{
+  "layers": {
+    "water": {
+      "minzoom": 0,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0003,
+      "simplify_ratio": 2
+    },
+    "waterway": {
+      "minzoom": 8,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0001
+    },
+    "landcover": {
+      "minzoom": 7,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0003,
+      "simplify_ratio": 2
+    },
+    "landuse": {
+      "minzoom": 9,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0001
+    },
+    "park": {
+      "minzoom": 8,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0001
+    },
+    "boundary": {
+      "minzoom": 0,
+      "maxzoom": 14,
+      "simplify_below": 10,
+      "simplify_level": 0.0003
+    },
+    "transportation": {
+      "minzoom": 4,
+      "maxzoom": 14,
+      "simplify_below": 12,
+      "simplify_level": 0.0001
+    },
+    "building": {
+      "minzoom": 13,
+      "maxzoom": 14
+    },
+    "place": {
+      "minzoom": 3,
+      "maxzoom": 14
+    },
+    "poi": {
+      "minzoom": 12,
+      "maxzoom": 14
+    }
+  },
+  "settings": {
+    "minzoom": 0,
+    "maxzoom": 14,
+    "basezoom": 14,
+    "include_ids": false,
+    "compress": "gzip",
+    "name": "Cairn GB OSM",
+    "version": "1.0",
+    "description": "Great Britain vector tiles for Project Cairn",
+    "attribution": "© OpenStreetMap contributors"
+  }
+}

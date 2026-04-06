@@ -1,0 +1,32 @@
+{
+  "region": "north",
+  "name": "Northern England",
+  "bbox": [-3.6, 53.2, -0.7, 55.8],
+  "description": "Yorkshire, Lancashire, Cumbria, Northumberland, Durham, Greater Manchester, Merseyside, Tyne and Wear",
+  "items": [
+    {
+      "id": "gb-osm-tiles-north",
+      "name": "OSM Map Tiles — North",
+      "filename": "gb-osm-north.mbtiles",
+      "size_gb": 0.7,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-north",
+      "name": "OS Overlay — North",
+      "filename": "os-overlay-north.mbtiles",
+      "size_gb": 0.35,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-north",
+      "name": "Flood Zones — North",
+      "filename": "flood-zones-north.mbtiles",
+      "size_gb": 0.12,
+      "source": "self-built from EA data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

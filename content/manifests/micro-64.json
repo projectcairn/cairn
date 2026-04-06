@@ -1,0 +1,63 @@
+{
+  "tier": "micro-64",
+  "description": "Core content set for 64 GB storage (48–100 GB available)",
+  "total_size_gb": 38,
+  "inherits": "micro-32",
+  "items": [
+    {
+      "id": "wikipedia-medium",
+      "name": "Wikipedia — 100k Articles with Images",
+      "filename": "wikipedia_en_100k.zim",
+      "size_gb": 12.0,
+      "source": "https://download.kiwix.org/zim/wikipedia/",
+      "tier": "micro-64",
+      "licence": "CC-BY-SA 3.0",
+      "replaces": "wikipedia-mini"
+    },
+    {
+      "id": "pfaf-plants",
+      "name": "Plants For A Future — Edible & Medicinal Plants",
+      "filename": "pfaf-plants.zim",
+      "size_gb": 0.8,
+      "source": "self-built",
+      "tier": "micro-64",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "first-aid",
+      "name": "Wikimedia First Aid Manual",
+      "filename": "wikibooks_en_first-aid.zim",
+      "size_gb": 0.1,
+      "source": "https://download.kiwix.org/zim/wikibooks/",
+      "tier": "micro-64",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "os-overlay",
+      "name": "OS Open Zoomstack Overlay",
+      "filename": "os-overlay.mbtiles",
+      "size_gb": 1.5,
+      "source": "self-built from OS data",
+      "tier": "micro-64",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones",
+      "name": "Environment Agency Flood Zones",
+      "filename": "flood-zones.mbtiles",
+      "size_gb": 0.5,
+      "source": "self-built from EA data",
+      "tier": "micro-64",
+      "licence": "OGL v3.0"
+    },
+    {
+      "id": "stackexchange-diy",
+      "name": "StackExchange — Home Improvement",
+      "filename": "stackexchange_diy.zim",
+      "size_gb": 0.8,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "micro-64",
+      "licence": "CC-BY-SA 4.0"
+    }
+  ]
+}

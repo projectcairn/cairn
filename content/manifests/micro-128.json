@@ -1,0 +1,72 @@
+{
+  "tier": "micro-128",
+  "description": "Extended content set for 128 GB storage (100–200 GB available)",
+  "total_size_gb": 85,
+  "inherits": "micro-64",
+  "items": [
+    {
+      "id": "wikipedia-large",
+      "name": "Wikipedia — All Articles (no images)",
+      "filename": "wikipedia_en_all_nopic.zim",
+      "size_gb": 24.0,
+      "source": "https://download.kiwix.org/zim/wikipedia/",
+      "tier": "micro-128",
+      "licence": "CC-BY-SA 3.0",
+      "replaces": "wikipedia-medium"
+    },
+    {
+      "id": "gutenberg",
+      "name": "Project Gutenberg — 70k Books",
+      "filename": "gutenberg_en_all.zim",
+      "size_gb": 8.0,
+      "source": "https://download.kiwix.org/zim/gutenberg/",
+      "tier": "micro-128",
+      "licence": "Public Domain"
+    },
+    {
+      "id": "openstreetmap-wiki",
+      "name": "OpenStreetMap Wiki",
+      "filename": "osm-wiki_en.zim",
+      "size_gb": 0.5,
+      "source": "https://download.kiwix.org/zim/other/",
+      "tier": "micro-128",
+      "licence": "CC-BY-SA 2.0"
+    },
+    {
+      "id": "stackexchange-electronics",
+      "name": "StackExchange — Electronics",
+      "filename": "stackexchange_electronics.zim",
+      "size_gb": 1.5,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "micro-128",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "stackexchange-cooking",
+      "name": "StackExchange — Cooking",
+      "filename": "stackexchange_cooking.zim",
+      "size_gb": 0.5,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "micro-128",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "ted-talks",
+      "name": "TED Talks (selected, no video)",
+      "filename": "ted_en_nopic.zim",
+      "size_gb": 0.8,
+      "source": "https://download.kiwix.org/zim/ted/",
+      "tier": "micro-128",
+      "licence": "CC-BY-NC-ND 4.0"
+    },
+    {
+      "id": "wikibooks-en",
+      "name": "English Wikibooks",
+      "filename": "wikibooks_en_all.zim",
+      "size_gb": 2.0,
+      "source": "https://download.kiwix.org/zim/wikibooks/",
+      "tier": "micro-128",
+      "licence": "CC-BY-SA 3.0"
+    }
+  ]
+}

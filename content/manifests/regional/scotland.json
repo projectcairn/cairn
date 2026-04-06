@@ -1,0 +1,32 @@
+{
+  "region": "scotland",
+  "name": "Scotland",
+  "bbox": [-8.2, 54.6, -0.7, 60.9],
+  "description": "All of Scotland including Highlands, Islands, Central Belt, Borders",
+  "items": [
+    {
+      "id": "gb-osm-tiles-scot",
+      "name": "OSM Map Tiles — Scotland",
+      "filename": "gb-osm-scotland.mbtiles",
+      "size_gb": 0.5,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-scot",
+      "name": "OS Overlay — Scotland",
+      "filename": "os-overlay-scotland.mbtiles",
+      "size_gb": 0.3,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-scot",
+      "name": "Flood Zones — Scotland",
+      "filename": "flood-zones-scotland.mbtiles",
+      "size_gb": 0.08,
+      "source": "self-built from SEPA data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

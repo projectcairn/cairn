@@ -1,0 +1,79 @@
+{
+  "tier": "micro-32",
+  "description": "Minimal content set for 32 GB storage (< 48 GB available)",
+  "total_size_gb": 18,
+  "items": [
+    {
+      "id": "wikipedia-mini",
+      "name": "Wikipedia — Top 50k Articles",
+      "filename": "wikipedia_en_top_mini.zim",
+      "size_gb": 5.0,
+      "source": "https://download.kiwix.org/zim/wikipedia/",
+      "tier": "micro-32",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "wikivoyage",
+      "name": "Wikivoyage UK",
+      "filename": "wikivoyage_en_gb.zim",
+      "size_gb": 0.3,
+      "source": "https://download.kiwix.org/zim/wikivoyage/",
+      "tier": "micro-32",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "nhs-health",
+      "name": "NHS Health A-Z",
+      "filename": "nhs-health-az.zim",
+      "size_gb": 1.5,
+      "source": "self-built",
+      "tier": "micro-32",
+      "licence": "OGL v3.0"
+    },
+    {
+      "id": "govuk-prepare",
+      "name": "UK Emergency Preparedness",
+      "filename": "govuk-prepare.zim",
+      "size_gb": 0.1,
+      "source": "self-built",
+      "tier": "micro-32",
+      "licence": "OGL v3.0"
+    },
+    {
+      "id": "uk-radio",
+      "name": "UK Radio Reference",
+      "filename": "uk-radio-reference.zim",
+      "size_gb": 0.01,
+      "source": "self-built",
+      "tier": "micro-32",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "gb-osm-tiles",
+      "name": "Great Britain Map Tiles (OSM)",
+      "filename": "gb-osm.mbtiles",
+      "size_gb": 3.5,
+      "source": "self-built from OSM",
+      "tier": "micro-32",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "stackexchange-survival",
+      "name": "StackExchange — The Great Outdoors",
+      "filename": "stackexchange_outdoors.zim",
+      "size_gb": 0.2,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "micro-32",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "wiktionary-en",
+      "name": "English Wiktionary",
+      "filename": "wiktionary_en_all.zim",
+      "size_gb": 6.0,
+      "source": "https://download.kiwix.org/zim/wiktionary/",
+      "tier": "micro-32",
+      "licence": "CC-BY-SA 3.0"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "channel": 16,
+    "frequency_mhz": 156.800,
+    "duplex": false,
+    "designation": "International distress, safety and calling",
+    "notes": "Monitored continuously by HM Coastguard. MAYDAY, PAN-PAN, SECURITE."
+  },
+  {
+    "channel": 0,
+    "frequency_mhz": 156.000,
+    "duplex": false,
+    "designation": "SAR coordination (Coastguard)",
+    "notes": "Used by Coastguard for SAR operations. Do not use without authorisation."
+  },
+  {
+    "channel": 6,
+    "frequency_mhz": 156.300,
+    "duplex": false,
+    "designation": "Inter-ship safety",
+    "notes": "Ship-to-ship safety communications, including SAR."
+  },
+  {
+    "channel": 10,
+    "frequency_mhz": 156.500,
+    "duplex": false,
+    "designation": "Pollution / MSI",
+    "notes": "Pollution reporting and maritime safety information."
+  },
+  {
+    "channel": 13,
+    "frequency_mhz": 156.650,
+    "duplex": false,
+    "designation": "Bridge-to-bridge safety",
+    "notes": "Navigation safety between vessels, port approaches."
+  },
+  {
+    "channel": 67,
+    "frequency_mhz": 156.375,
+    "duplex": false,
+    "designation": "UK Small craft safety",
+    "notes": "HM Coastguard working channel for small craft. Used after initial Ch 16 contact."
+  },
+  {
+    "channel": 70,
+    "frequency_mhz": 156.525,
+    "duplex": false,
+    "designation": "DSC distress and safety",
+    "notes": "Digital Selective Calling only. Automated distress alerting."
+  },
+  {
+    "channel": 77,
+    "frequency_mhz": 156.875,
+    "duplex": false,
+    "designation": "Inter-ship (supplement)",
+    "notes": "Supplementary inter-ship channel."
+  },
+  {
+    "channel": "M1",
+    "frequency_mhz": 157.850,
+    "duplex": false,
+    "designation": "UK marina channel",
+    "notes": "Private marina and yacht club operations."
+  },
+  {
+    "channel": "M2",
+    "frequency_mhz": 161.425,
+    "duplex": false,
+    "designation": "UK marina channel",
+    "notes": "Secondary marina working channel."
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "region": "wales",
+  "name": "Wales",
+  "bbox": [-5.4, 51.3, -2.6, 53.5],
+  "description": "All of Wales including Snowdonia, Pembrokeshire, Brecon Beacons, South Wales valleys",
+  "items": [
+    {
+      "id": "gb-osm-tiles-wales",
+      "name": "OSM Map Tiles — Wales",
+      "filename": "gb-osm-wales.mbtiles",
+      "size_gb": 0.3,
+      "source": "self-built from OSM (regional extract)",
+      "licence": "ODbL (OpenStreetMap)"
+    },
+    {
+      "id": "os-overlay-wales",
+      "name": "OS Overlay — Wales",
+      "filename": "os-overlay-wales.mbtiles",
+      "size_gb": 0.2,
+      "source": "self-built from OS data (regional extract)",
+      "licence": "OGL v3.0 (Ordnance Survey)"
+    },
+    {
+      "id": "flood-zones-wales",
+      "name": "Flood Zones — Wales",
+      "filename": "flood-zones-wales.mbtiles",
+      "size_gb": 0.06,
+      "source": "self-built from NRW data (regional extract)",
+      "licence": "OGL v3.0"
+    }
+  ]
+}

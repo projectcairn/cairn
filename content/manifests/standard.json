@@ -1,0 +1,80 @@
+{
+  "tier": "standard",
+  "description": "Comprehensive content set for 512 GB+ storage (400+ GB available)",
+  "total_size_gb": 310,
+  "inherits": "lite",
+  "items": [
+    {
+      "id": "stackoverflow",
+      "name": "StackOverflow — Full Archive",
+      "filename": "stackexchange_stackoverflow.zim",
+      "size_gb": 85.0,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "standard",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "ifixit",
+      "name": "iFixit Repair Guides",
+      "filename": "ifixit_en_all.zim",
+      "size_gb": 4.0,
+      "source": "https://download.kiwix.org/zim/ifixit/",
+      "tier": "standard",
+      "licence": "CC-BY-NC-SA 3.0"
+    },
+    {
+      "id": "khan-academy",
+      "name": "Khan Academy (lite)",
+      "filename": "khan_en_lite.zim",
+      "size_gb": 15.0,
+      "source": "https://download.kiwix.org/zim/khan/",
+      "tier": "standard",
+      "licence": "CC-BY-NC-SA 3.0"
+    },
+    {
+      "id": "openlearn",
+      "name": "OpenLearn (Open University courses)",
+      "filename": "openlearn_en.zim",
+      "size_gb": 2.0,
+      "source": "https://download.kiwix.org/zim/other/",
+      "tier": "standard",
+      "licence": "CC-BY-NC-SA 4.0"
+    },
+    {
+      "id": "wikiquote-en",
+      "name": "English Wikiquote",
+      "filename": "wikiquote_en_all.zim",
+      "size_gb": 0.5,
+      "source": "https://download.kiwix.org/zim/wikiquote/",
+      "tier": "standard",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "wikispecies",
+      "name": "Wikispecies",
+      "filename": "wikispecies_en_all.zim",
+      "size_gb": 0.8,
+      "source": "https://download.kiwix.org/zim/wikispecies/",
+      "tier": "standard",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "stackexchange-security",
+      "name": "StackExchange — Information Security",
+      "filename": "stackexchange_security.zim",
+      "size_gb": 1.2,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "standard",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "stackexchange-ham",
+      "name": "StackExchange — Amateur Radio",
+      "filename": "stackexchange_ham.zim",
+      "size_gb": 0.2,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "standard",
+      "licence": "CC-BY-SA 4.0"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "tier": "lite",
+  "description": "Full content set for 256 GB storage (200–400 GB available)",
+  "total_size_gb": 160,
+  "inherits": "micro-128",
+  "items": [
+    {
+      "id": "wikipedia-full",
+      "name": "Wikipedia — All Articles with Images",
+      "filename": "wikipedia_en_all_maxi.zim",
+      "size_gb": 97.0,
+      "source": "https://download.kiwix.org/zim/wikipedia/",
+      "tier": "lite",
+      "licence": "CC-BY-SA 3.0",
+      "replaces": "wikipedia-large"
+    },
+    {
+      "id": "stackexchange-serverfault",
+      "name": "StackExchange — Server Fault",
+      "filename": "stackexchange_serverfault.zim",
+      "size_gb": 2.5,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "lite",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "stackexchange-askubuntu",
+      "name": "StackExchange — Ask Ubuntu",
+      "filename": "stackexchange_askubuntu.zim",
+      "size_gb": 3.0,
+      "source": "https://download.kiwix.org/zim/stack_exchange/",
+      "tier": "lite",
+      "licence": "CC-BY-SA 4.0"
+    },
+    {
+      "id": "wikisource-en",
+      "name": "English Wikisource",
+      "filename": "wikisource_en_all.zim",
+      "size_gb": 5.0,
+      "source": "https://download.kiwix.org/zim/wikisource/",
+      "tier": "lite",
+      "licence": "CC-BY-SA 3.0"
+    },
+    {
+      "id": "wikinews-en",
+      "name": "English Wikinews",
+      "filename": "wikinews_en_all.zim",
+      "size_gb": 0.3,
+      "source": "https://download.kiwix.org/zim/wikinews/",
+      "tier": "lite",
+      "licence": "CC-BY 2.5"
+    }
+  ]
+}
