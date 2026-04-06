@@ -100,10 +100,11 @@ def load_json(filename):
 
 
 def page(title, body, current=""):
-    nav = "\n".join(
-        f'<a href="{href}"{"" if href != current else " style=\"text-decoration:underline\""}>{label}</a>'
-        for href, label in NAV_LINKS
-    )
+    links = []
+    for href, label in NAV_LINKS:
+        style = ' style="text-decoration:underline"' if href == current else ""
+        links.append(f'<a href="{href}"{style}>{label}</a>')
+    nav = "\n".join(links)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
