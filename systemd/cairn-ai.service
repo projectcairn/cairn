@@ -1,19 +1,20 @@
 [Unit]
 Description=Cairn local AI inference server (llama.cpp)
 After=network.target
-ConditionPathExists=/opt/cairn/models/gemma-3-1b-it.gguf
+ConditionDirectoryNotEmpty=/opt/cairn/models
 
 [Service]
 User=cairn
+EnvironmentFile=/opt/cairn/cairn.env
 ExecStart=/usr/local/bin/llama-server \
-    --model /opt/cairn/models/gemma-3-1b-it.gguf \
+    --model ${CAIRN_AI_MODEL} \
     --port 8081 \
     --host 127.0.0.1 \
     --ctx-size 2048 \
     --threads 4
 Restart=always
 RestartSec=5
-MemoryMax=2G
+MemoryMax=${CAIRN_AI_MEM_LIMIT:-2G}
 
 [Install]
 WantedBy=multi-user.target

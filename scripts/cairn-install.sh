@@ -234,37 +234,45 @@ fi
 
 if [ "${NONINTERACTIVE}" != "1" ] && [ "${RAM_MB}" -ge 4000 ]; then
     echo ""
-    if [ "${RAM_MB}" -ge 8000 ]; then
-        AI_MODEL_NAME="gemma-3-4b-it-Q4_K_M.gguf"
-        AI_MODEL_URL="https://huggingface.co/bartowski/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf"
-        AI_DESC="Gemma 3 4B (Q4_K_M) — better quality, needs ~3 GB RAM"
+    if [ "${RAM_MB}" -ge 20000 ]; then
+        AI_MODEL_FILE="gemma-4-26b-a4b-it.gguf"
+        AI_MODEL_URL="https://huggingface.co/ggml-org/gemma-4-26B-A4B-it-GGUF/resolve/main/gemma-4-26B-A4B-it-Q4_K_M.gguf"
+        AI_DESC="Gemma 4 26B-A4B MoE (Q4_K_M) — best quality, needs ~5 GB RAM"
+        AI_MEM_LIMIT="8G"
+    elif [ "${RAM_MB}" -ge 8000 ]; then
+        AI_MODEL_FILE="gemma-4-e4b-it.gguf"
+        AI_MODEL_URL="https://huggingface.co/ggml-org/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf"
+        AI_DESC="Gemma 4 E4B (Q4_K_M) — better quality, needs ~3 GB RAM"
+        AI_MEM_LIMIT="4G"
     else
-        AI_MODEL_NAME="gemma-3-1b-it-Q4_K_M.gguf"
-        AI_MODEL_URL="https://huggingface.co/bartowski/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q4_K_M.gguf"
-        AI_DESC="Gemma 3 1B (Q4_K_M) — lightweight, needs ~1.2 GB RAM"
+        AI_MODEL_FILE="gemma-4-e2b-it.gguf"
+        AI_MODEL_URL="https://huggingface.co/ggml-org/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_K_M.gguf"
+        AI_DESC="Gemma 4 E2B (Q4_K_M) — lightweight, needs ~1.5 GB RAM"
+        AI_MEM_LIMIT="2G"
     fi
 
     read -r -p "Install local AI? ${AI_DESC} (y/N) " ai_ans
     case "${ai_ans}" in
         y*|Y*)
             info "Downloading llama-server..."
-            LLAMA_URL="https://github.com/ggml-org/llama.cpp/releases/latest/download/llama-server-linux-x86_64.tar.gz"
-            TMP_LL=$(mktemp -d)
-            curl -sSL "${LLAMA_URL}" | tar xz -C "${TMP_LL}"
-            install -m 755 "${TMP_LL}/llama-server" /usr/local/bin/
-            rm -rf "${TMP_LL}"
+            LLAMA_URL="https://github.com/ggerganov/llama.cpp/releases/latest/download/llama-server-linux-x86_64"
+            wget -qO /tmp/llama-server "${LLAMA_URL}"
+            install -m 755 /tmp/llama-server /usr/local/bin/llama-server
+            rm -f /tmp/llama-server
             info "llama-server installed"
 
-            info "Downloading model: ${AI_MODEL_NAME} (this may take a while)..."
-            curl -sSL -o "${CAIRN_DIR}/models/${AI_MODEL_NAME}" "${AI_MODEL_URL}"
-            chown cairn:cairn "${CAIRN_DIR}/models/${AI_MODEL_NAME}"
+            info "Downloading model: ${AI_MODEL_FILE} (this may take a while)..."
+            curl -sSL -o "${CAIRN_DIR}/models/${AI_MODEL_FILE}" "${AI_MODEL_URL}"
+            chown cairn:cairn "${CAIRN_DIR}/models/${AI_MODEL_FILE}"
 
-            # Update service to point at the right model file
-            if [ "${AI_MODEL_NAME}" != "gemma-3-1b-it.gguf" ]; then
-                sed -i "s|gemma-3-1b-it.gguf|${AI_MODEL_NAME}|g" /etc/systemd/system/cairn-ai.service
-                systemctl daemon-reload
-            fi
+            info "Writing cairn.env..."
+            cat > "${CAIRN_DIR}/cairn.env" << EOF
+CAIRN_AI_MODEL=/opt/cairn/models/${AI_MODEL_FILE}
+CAIRN_AI_MEM_LIMIT=${AI_MEM_LIMIT}
+EOF
+            chown cairn:cairn "${CAIRN_DIR}/cairn.env"
 
+            systemctl daemon-reload
             systemctl enable cairn-ai --quiet
             systemctl start cairn-ai || warn "cairn-ai failed to start — check model file"
             info "Local AI enabled"
