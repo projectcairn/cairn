@@ -13,7 +13,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     zimit \
     --seeds "https://prepare.campaign.gov.uk/" \
     --name "govuk-prepare" \
-    --title "UK Government Emergency Preparedness" \
+    --title "UK Emergency Preparedness" \
     --description "Official UK government guidance on preparing for emergencies" \
     --lang en \
     --scopeType "page" \

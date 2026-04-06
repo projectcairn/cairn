@@ -13,7 +13,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     zimit \
     --seeds "https://pfaf.org/user/Plant.aspx" \
     --name "pfaf-plants" \
-    --title "Plants For A Future - Edible and Medicinal Plants" \
+    --title "Plants For A Future" \
     --description "Database of edible and medicinal plants with cultivation details" \
     --lang en \
     --scopeType "prefix" \
