@@ -24,7 +24,6 @@ docker run --rm -v "${OUTDIR}:/output" \
     --scopeIncludeRx "https://www\.nhs\.uk/common-health-questions/accidents-first-aid-and-treatments/" \
     -w 4 \
     --waitUntil "load" \
-    --behaviors "" \
-    --limit 0
+    --behaviors ""
 
 echo "Done → ${OUTDIR}/nhs-health-az.zim"

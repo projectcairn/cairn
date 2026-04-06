@@ -22,7 +22,6 @@ docker run --rm -v "${OUTDIR}:/output" \
     --scopeIncludeRx "pfaf\.org/user/DatabaseSearhResult\.aspx" \
     -w 4 \
     --waitUntil "load" \
-    --behaviors "" \
-    --limit 0
+    --behaviors ""
 
 echo "Done → ${OUTDIR}/pfaf-plants.zim"

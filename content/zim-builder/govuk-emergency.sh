@@ -20,7 +20,6 @@ docker run --rm -v "${OUTDIR}:/output" \
     --scopeType "page" \
     -w 2 \
     --waitUntil "load" \
-    --behaviors "" \
-    --limit 0
+    --behaviors ""
 
 echo "Done → ${OUTDIR}/govuk-prepare.zim"
