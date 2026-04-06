@@ -37,11 +37,15 @@ fi
 echo "[2/2] Building vector tiles (zoom 0-14)..."
 echo "This will take a while — 30-90 minutes depending on hardware."
 
+STORE_DIR="/tmp/tilemaker-store"
+mkdir -p "${STORE_DIR}"
+
 tilemaker \
     --input "${PBF_FILE}" \
     --output "${MBTILES_FILE}" \
     --config "${CONFIG_DIR}/config.json" \
-    --process "${CONFIG_DIR}/process.lua"
+    --process "${CONFIG_DIR}/process.lua" \
+    --store "${STORE_DIR}"
 
 echo "Done → ${MBTILES_FILE}"
 echo "Size: $(du -h "${MBTILES_FILE}" | cut -f1)"
