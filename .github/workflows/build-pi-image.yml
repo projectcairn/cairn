@@ -35,7 +35,7 @@ jobs:
         id: build
         with:
           image-name: cairn-pi
-          stage-list: stage0 stage1 stage2 stage-cairn-base
+          stage-list: stage0 stage1 stage2 ./pi-gen/stage-cairn-base
           verbose-output: true
           enable-noobs: false
           compression: xz
