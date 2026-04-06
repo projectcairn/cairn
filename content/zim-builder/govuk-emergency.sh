@@ -17,7 +17,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --description "Official UK government guidance on preparing for emergencies" \
     --creator "Project Cairn (content under OGL v3.0)" \
     --lang eng \
-    --output "/output/govuk-prepare.zim" \
+    --output "/output" \
     --scopeType "page" \
     --workers 2 \
     --waitUntil "load" \

@@ -17,7 +17,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --description "Database of edible and medicinal plants with cultivation details" \
     --creator "Project Cairn (PFAF content under CC-BY-SA 4.0)" \
     --lang eng \
-    --output "/output/pfaf-plants.zim" \
+    --output "/output" \
     --scopeType "prefix" \
     --include "https://pfaf.org/user/Plant.aspx" \
     --include "https://pfaf.org/user/DatabaseSearhResult.aspx" \

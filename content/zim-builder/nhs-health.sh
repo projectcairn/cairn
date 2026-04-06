@@ -17,7 +17,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --description "NHS health conditions, first aid, mental health and wellbeing guides" \
     --creator "Project Cairn (content from NHS.uk under OGL)" \
     --lang eng \
-    --output "/output/nhs-health-az.zim" \
+    --output "/output" \
     --scopeType "prefix" \
     --include "https://www.nhs.uk/conditions/" \
     --include "https://www.nhs.uk/live-well/" \
