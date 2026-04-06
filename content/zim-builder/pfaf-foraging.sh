@@ -15,7 +15,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --name "pfaf-plants" \
     --title "Plants For A Future - Edible and Medicinal Plants" \
     --description "Database of edible and medicinal plants with cultivation details" \
-    --lang eng \
+    --lang en \
     --scopeType "prefix" \
     --scopeIncludeRx "pfaf\.org/user/Plant\.aspx" \
     --scopeIncludeRx "pfaf\.org/user/DatabaseSearhResult\.aspx" \

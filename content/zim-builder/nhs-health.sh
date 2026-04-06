@@ -15,7 +15,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --name "nhs-health-az" \
     --title "NHS Health A-Z" \
     --description "NHS health conditions and first aid and mental health and wellbeing guides" \
-    --lang eng \
+    --lang en \
     --scopeType "prefix" \
     --scopeIncludeRx "https://www\.nhs\.uk/conditions/" \
     --scopeIncludeRx "https://www\.nhs\.uk/live-well/" \

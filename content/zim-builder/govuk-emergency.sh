@@ -15,7 +15,7 @@ docker run --rm -v "${OUTDIR}:/output" \
     --name "govuk-prepare" \
     --title "UK Government Emergency Preparedness" \
     --description "Official UK government guidance on preparing for emergencies" \
-    --lang eng \
+    --lang en \
     --scopeType "page" \
     -w 2 \
     --waitUntil "load"
