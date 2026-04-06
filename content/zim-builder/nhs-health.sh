@@ -11,19 +11,17 @@ mkdir -p "${OUTDIR}"
 docker run --rm -v "${OUTDIR}:/output" \
     ghcr.io/openzim/zimit:latest \
     zimit \
-    --url "https://www.nhs.uk/conditions/" \
-    --name "nhs-health-az" \
+    --seeds "https://www.nhs.uk/conditions/" \
+    --collection "nhs-health-az" \
     --title "NHS Health A-Z" \
     --description "NHS health conditions, first aid, mental health and wellbeing guides" \
-    --creator "Project Cairn (content from NHS.uk under OGL)" \
     --lang eng \
-    --output "/output" \
     --scopeType "prefix" \
-    --include "https://www.nhs.uk/conditions/" \
-    --include "https://www.nhs.uk/live-well/" \
-    --include "https://www.nhs.uk/mental-health/" \
-    --include "https://www.nhs.uk/common-health-questions/accidents-first-aid-and-treatments/" \
-    --workers 4 \
+    --scopeIncludeRx "https://www\.nhs\.uk/conditions/" \
+    --scopeIncludeRx "https://www\.nhs\.uk/live-well/" \
+    --scopeIncludeRx "https://www\.nhs\.uk/mental-health/" \
+    --scopeIncludeRx "https://www\.nhs\.uk/common-health-questions/accidents-first-aid-and-treatments/" \
+    -w 4 \
     --waitUntil "load" \
     --behaviors "" \
     --limit 0

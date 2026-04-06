@@ -11,17 +11,15 @@ mkdir -p "${OUTDIR}"
 docker run --rm -v "${OUTDIR}:/output" \
     ghcr.io/openzim/zimit:latest \
     zimit \
-    --url "https://pfaf.org/user/Plant.aspx" \
-    --name "pfaf-plants" \
+    --seeds "https://pfaf.org/user/Plant.aspx" \
+    --collection "pfaf-plants" \
     --title "Plants For A Future — Edible & Medicinal Plants" \
     --description "Database of edible and medicinal plants with cultivation details" \
-    --creator "Project Cairn (PFAF content under CC-BY-SA 4.0)" \
     --lang eng \
-    --output "/output" \
     --scopeType "prefix" \
-    --include "https://pfaf.org/user/Plant.aspx" \
-    --include "https://pfaf.org/user/DatabaseSearhResult.aspx" \
-    --workers 4 \
+    --scopeIncludeRx "pfaf\.org/user/Plant\.aspx" \
+    --scopeIncludeRx "pfaf\.org/user/DatabaseSearhResult\.aspx" \
+    -w 4 \
     --waitUntil "load" \
     --behaviors "" \
     --limit 0

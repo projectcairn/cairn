@@ -11,15 +11,13 @@ mkdir -p "${OUTDIR}"
 docker run --rm -v "${OUTDIR}:/output" \
     ghcr.io/openzim/zimit:latest \
     zimit \
-    --url "https://prepare.campaign.gov.uk/" \
-    --name "govuk-prepare" \
+    --seeds "https://prepare.campaign.gov.uk/" \
+    --collection "govuk-prepare" \
     --title "UK Government Emergency Preparedness" \
     --description "Official UK government guidance on preparing for emergencies" \
-    --creator "Project Cairn (content under OGL v3.0)" \
     --lang eng \
-    --output "/output" \
     --scopeType "page" \
-    --workers 2 \
+    -w 2 \
     --waitUntil "load" \
     --behaviors "" \
     --limit 0
