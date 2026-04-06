@@ -41,8 +41,7 @@ tilemaker \
     --input "${PBF_FILE}" \
     --output "${MBTILES_FILE}" \
     --config "${CONFIG_DIR}/config.json" \
-    --process "${CONFIG_DIR}/process.lua" \
-    --skip-integrity
+    --process "${CONFIG_DIR}/process.lua"
 
 echo "Done → ${MBTILES_FILE}"
 echo "Size: $(du -h "${MBTILES_FILE}" | cut -f1)"
